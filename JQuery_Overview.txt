@@ -1,0 +1,31 @@
+What is JQuery?
+
+Its a free, open JS library which simplifies the task of creating highly responsive web pages that works across web browsers.
+
+Uses
+->simplify common scripting tasks
+  . manipulating web pages
+  . work with modern browser web model
+  . cool effects
+
+Benefits
+->leverages existing knowledge of CSS
+->works with sets of elements
+->perorm multiple operations in one line
+->hides browser quirks
+-> is extensible
+
+Example:
+
+$("document").ready(function(){
+alert("the page was loaded"}); //executes when DOM of page has loaded.
+
+Features 
+-> Core functionality
+->Selection and Traversal: finding and navigating among content
+->Manipulation and CSS
+->Events: modern DOM events
+-> Effects: creating basic animation effects
+->AJAX: loading content from  remote pages
+
+
