@@ -1,0 +1,203 @@
+JQuery selectors and filters retrieve content from the document so it can be manipulated using other functions
+jQuery selectors return an array of objects that match selection criteria
+
+jQuery filters operate on a selector to further refine the results array that the selector returns
+
+This array is not a set of DOM elements.
+
+It is a collction of jQuery objects that provide a large number of predefined functions for operating on the objects.
+
+Using basic JQuery Selectors
+
+tagname-> finds elements with that tagname
+#identifier-> find by id
+.className-> find by class name
+
+tag.classname, tag#id.className, * (wildcard-> find all elements on the page)
+
+Example:
+document.getElementsByTagName("p"); -> $("p");
+
+get the tag with id list1:
+$("#list1");
+
+$("li.a")-> li tags with class a
+
+Hierarchy and combination selectors allow you to get a little more advanced in selecting page content
+
+parent> child ->find child elements that are direct children of type parent
+ancestor descendant-> finds all descendant elements that are contained within elements of type ancestor
+
+prev+next -> find all next elements that are next to a prev element.
+
+prev~next-> finds all sibling elements that come after prev and match the siblings selector
+
+selector, selector -> finds all of specified selectors
+.class1,.class2 -> finds all elements with both class 1 and class2
+
+Examples
+$("document").ready(function() {
+	$("p").css("border","3px solid red");
+});
+
+$(".a").css(...) -> class selector
+$("#list").css(...) ->id selector
+
+Hierarchial 
+
+$("p, li.b").css(...) -> li and class b
+
+Descendant 
+$("ul li.a").css(...) -> unordered list and list item with class a on them
+
+$("ul+p")-> para after list
+$("#list1~p")->siblings
+
+Using JQUERY selectors and filters
+
+Filters work with selectors to provide more fine ground control over how elements are selected in the document
+
+Basic-> provide basic filtering like getting first, last and even-odd numbered items in a returned set
+Content-> filters on the basis of whether an element contains a particular string (sexample)
+Visibility: selects content on the basis of visibility of an element
+Attribute-> Examines a given attribute on an element to determine whether it should be filtered out
+Child: selcts elements based on relationship with their parent element
+Form-> specilaized filters that operate on form elements
+
+Basic JQuery filters:
+:first-> selects only teh first instance of the selector's returned set
+:last-> selects only the last instance of the selector's returned set
+:odd-> selects only the odd numbered elements in the selector's returned set
+:even -> selects only even numbered elements in the selector's returned set
+:eq(n)-> filters out elements not positioned at given index
+:gt(n)->includes elements that are past teh given index
+:lt(n)-> includes elements that are before given index
+:header-> selects lal header elements H1, H2...
+:animated-> selects all elements that are currently animated in some way
+:not(selector)-> includes elements that don't match given selector
+
+Examples:
+$("p:first") -> first p tag
+(indexing starts at 0)
+$("p:last")->last paragraph
+$("p:even")-> all even paragraphs //indexing starts at 0
+$("p:odd")-> all odd paragraphs
+$(".b:even")
+$("p:gt(1))->greater than 1 index
+$("p:not(p:eq(2))-> paragraphs that are not equal to index 2
+
+Attribute filters
+[attribute]-> includes elements in the result if they have the specified attribute
+
+[attribute=value]-> includes elements in the result if they have the specified attribute with the value
+
+[attribute!=value]-> inlcudes elements in the result set if they have the attribute but not the value
+
+[attribute^=value] includes elements having the attribute and starts with the provided value
+
+[attribute$=value]->elements that have the specified attribute and ends with the specified value
+
+[attribute*=value]-> have the specified attrribute and it contains the given value
+
+[attrFilter1][attrFilterN]->includes the elements that match all the specified attribut filters.
+
+Examples
+$("p[class]").css(...) //select parameters with class attribute
+
+$("p[id=para1]").css(...) //select attribute with parameter para1 as id
+
+$("p[id=^=para]).css(...) //starts with para
+
+$("p[id^=para][lang*=en-]").css(...)
+
+Content and Visibility filters
+
+Content filters
+
+:contains(text)-> filters the selection to include elements that contain the text string
+
+:empty-> filters to include only empty elements
+
+:has(selector)-> matches elements that contain at least one element that has the specified filter
+
+:parent-> matches all elments that are parents
+
+
+Visibility filters
+:visible-> filters the selection to include visible elements
+:hidden-> filters to include only hidden elements
+
+
+Child filters
+:nth-child(index)
+:nth-child(even)
+:nth-child(odd)
+:nth-child(equation)
+:first-child->first child of parent
+:last-child
+:only-child
+
+Examples
+p:contains(3) , :contains(3),
+
+
+Form selectors
+
+:input -> finds all input,select,textarea and button
+:text-> finds all text elements
+:password-> finds all password elements
+:radio-> finds all radio buttons
+:checkbox-> finds all checkbox elements
+:submit-> finds all submit elements
+:reset->finds all reset elements
+:image-> finds all image elements
+:button-> finds all button elements
+:file-> finds all file upload elements
+
+Form filters
+:enabled-> matches all form elements that are enabled
+:disabled-> matches all form elements that are disabled
+:checked-> matches all elements that are checked
+:selected->matches all form elements that are selected
+
+Example:
+$("form :input").css(...);
+
+$("form :text").css(...);
+
+$(form :checkbox :checked).css(...)
+
+
+Traversing Document
+
+size(), length-> number of elements in the jQuery result set
+get()-> returns an array of all matched DOM elements
+get(index)->acceses a single matched DOM element at a specified index in the matched set
+find(expression)->searches for descendant elements that match specified expression
+
+each(fn)> execute a function within teh context of every matched element.
+
+Examples
+alert("There are "+$("p").length+"<p> elements");
+
+var elems=$('li').get()
+alert("There are "+elems.length+" li tags");
+
+alert($('li').get(0));
+
+$("ul").find("li.b").css("border...");
+
+var leftmargin=0;
+var border=3;
+$("p").each(function(){
+$(this).css("border",border+"px solid red");
+$(this).css("margin-left",...);
+border+=2;
+leftmargin+=10;
+});
+
+JQuery statement chaining
+
+$(selector).fn1().fn2().fn3();
+
+
