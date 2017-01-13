@@ -1,0 +1,164 @@
+Manipulating Page Content
+
+Create new content to dynamically add into page.
+
+jQuery has functions for creating, copying, deleting, and moving content around as well as wrapping page content in other content
+
+Getting, creating and Getting content
+
+var newHeader=$("<h1>My new header"</h1">);
+var myStr="<h1>My new Header </h1>"
+var newHeader=$(myStr);
+
+In addition to this method one can use the html()and text() methods to get and set content on
+
+Functions and purpose
+html()-> returns the html content of first matched element
+
+html(newcontent)-> sets the content of every matched element
+
+text()->retuns text content of first matched element
+
+text(newtext)-> sets text of all matched elements
+
+
+
+Manipulating attributes
+attr(name)-> acceses property on the first matched element. This method makes it easy to retrieve a property value from the first matched element. If the element doesnot have an attribute with such a name undefined is returned
+
+attr(properties)-> Sets a series of attributes on all matched elements using an object notation syntax. this is bset used for setting a large number of properties at once.
+
+$("img").attr({src:"/images/hat.gif", title:"jQuery", alt:"jQuery Logo"});
+
+attr(key, value)-> sets a single property to a value on all matched elements
+
+attr(key,fn)-> Sets a single property to a computed value on all matched elements. Instead of supplying a string value a fnction is provided that computes the value of the attribute
+
+removeAttr(name)-> removes the named attribute from all matched elements
+
+Example:
+
+$("a").attr("target","_blank"); 
+
+$("a").removeAttr("href"); //remove href
+
+$("img").atrr({src:"images/Spring.jpg",alt:"Spring"});
+
+Inserting Content
+
+append(content)-> Appends content to every matched elements
+
+appendTo(selector)-> Appends all of matched lements to another, specified set of elements
+
+prepend(content)->prepends content to the inside of every matched element
+
+prependTo(selector)-> prepends content to the inside of every matched element 
+
+prependTo(selector)-> prepends all of the matched elements to another, specified set of elements
+
+prepend(content)->prepends content to the inside of every matched element
+
+prependTo(selector)->prepends all of the matched elements to anoher specified set of elements
+
+after(content)-> inserts content after each of the matched elements
+
+before(content)-> inserts content before each of the matched elemnts
+
+insertAfter(selector)-> inserts all of the matched elements after another, specified set of elements
+
+insertBefore(selector)-> inserts all matched elements before another, specified set of elements
+
+Examples
+$("p").append("with some content appended");
+
+$("p").prepend("Hello!");
+
+$("p:last").appendTo("p:first");
+
+This is para 1
+This is para 4
+This is para 2
+This is para 3
+
+Wrapping, Replacing, removing Content
+
+wrap(html)-> wraps each matched element with specified HTML content
+
+wrap(element)- wraps each matched element with the specified element 
+
+wrapAll(html)-> wraps all elements in the matched set withs pecified HTML
+
+wrapAll(element)-> wraps all elements in the specified set into a single wrapper element
+
+wrapInner(html)-> Wraps the inner child contents of each matched element (including text nodes) witha an HTML structure
+
+wrapInner(element)-> Wraps the inner child contents of each matched element with a DOM structure
+
+replaceWith(content)-> Replaces all matched element with specified HTML or DOM element
+
+replaceAll(selector)-> Replaces the elements by specified selector with the matched elements
+
+empty()-> Removes all child nodes from set of matched elements
+
+remove()-> removes all matched elements from the DOM
+
+clone()-> clone matched DOM elements and selects the clones
+
+clone(bool)-> clone matched DOM elements and all event handlers and select the clones
+
+Examples
+$("p").wrap("div-style='color-red'");
+$("p").wrapAll(...);
+$("ul").empty();
+
+Working with CSS information
+
+->css(name)-> returns the value for the named CSS property for the first matched element
+
+->css(properties)
+
+->css(property,value)
+
+->addClass(class) -> adds the specified class to each of the selected classes
+
+-> hasClass(class) -> returns true if specified class is present on at-least one of the set of matched elements
+
+->removeClass(class)->removes all specified classes
+
+->toggleClass(class,switch)-> adds specific class if switch is true removes if switch is false
+
+Positioning
+
+offset()->gets the current offset for the first matched element in pixels relative to the document
+
+offsetParent()->returns a jQuery collection with the positioned parent of the first matched parent
+
+position()-> gets the top and left position of an element relative t its offset parent
+
+scrollTop()->gets the scroll top offset of first matched element
+
+scrollTop(val)-> sets the scroll top offset to the given value of all matched elements
+
+scrollLeft()-> gets the scroll set offset of the first matched element
+
+scrollLeft(val)->sets the scroll left offset to the given value on all matched elements
+
+CSS Sizing info
+
+height()->gets the current computed pixel height of first matched element
+
+height(val)-> sets the css height of every matched element
+
+width()-> gets the current computed pixel, width o first matched element
+
+width(val)-> sets the css of all matched elements
+
+innerHeight()-> gets the inner height
+
+innerWidth()-> inner width
+
+outerHeight, outerWidth
+
+Associating data with page elements
+
+.data(), .removeData()
