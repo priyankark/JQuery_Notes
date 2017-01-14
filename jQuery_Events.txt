@@ -1,0 +1,70 @@
+jQuery Events
+
+Categories:
+->Binding/Unbinding
+->Unified Event Object->cross browser
+->Convinience features
+
+
+Binding/Unbinding events
+
+.on() an .off()
+
+->on->attach on or more events
+->off->remove events
+
+on(events,selector,data,handler(eventObject))
+
+Example
+
+$("#evtTarget").on("mouseover mouseleave",highlight);
+
+function highlight(evt){
+	$("evtTarget").toggleClass("highlighted");
+}
+
+$("#evtTarget").on("click",function(evt) {
+	$("#evtTarget").off("mouseover mouseleave",highlight");
+
+	$("#evtTraget").html("<p>You turned off the hover effect </p>");
+
+});
+
+jQuery Event Object
+
+type-> type of event ("click",e.g.)
+target->element that issued the event
+
+data-> data passed to bind function
+pageX,pagey->coordinates of mouse when event happened
+result->value returned by last handler function
+
+timestamp->Time when event occured
+
+preventDefault()->prevents the browser from executing the default action
+
+isDefaultPrevented()->returns whether preventDefault() was ever called on the object
+
+stopPropagation()-> stops bubbling of an event to parent elements
+
+isPropagationStopped()-> returns whether stopPropagation was ever called on this object.
+
+$("div").click(function(evt){
+	$(this).html("pageX:"+evt.pageX...);
+});
+
+Miscellaneous jQuery Event functions
+
+one->one(type,data,handler)-> works the same as bind() but the event handler is only ever executed one time for each matched element.
+
+trigger(event,data)-> triggers an evnt on every matched element. Also causes the default action of the browser to be executed. Passing 'click' to the trigger function will also cause the browser to act as though the item were clicked.
+
+triggerHandler(event, data)-> Triggers all bound handlers on an element without executing the browser's deafult actions, bubbling or live events. Only works on first matched element in the result set for selector.
+
+Example:
+
+$("div").one("click",function(evt){
+	$(this).css({background:"red",cursor:"auto"});
+});
+
+ 
