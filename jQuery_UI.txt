@@ -1,0 +1,19 @@
+Interactions, Widgets and effects
+
+Interactions: Draggable, Sizable etc
+
+Widgets: slider spinner etc
+
+Effects: Add class, Color Animation etc
+
+Widgets:
+Accordian-> see code from website, API documentation
+
+Autocomplete , DatePicker, Buttons (Toolbars etc), Dialog,
+Progressbar
+
+Effects: Draggable, Resizable, 
+
+->Custom themeroller
+
+ 
