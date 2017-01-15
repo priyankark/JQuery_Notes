@@ -1,0 +1,71 @@
+Animations and effects
+
+->showing and hiding elements
+->fading in and out
+->moving elements on screen
+
+Showing and hiding elements
+
+->show()->displays each of the set of matched elements if they are hidden
+->show(speed, callback)-> shows all matched elements using a graceful animation Fires a callback on completion
+
+->hide()->hides each of the set of matched elements if they are shown
+->hide(speed, callback)
+->toggle()->toggles displaying of each set of matched elements
+
+->toggle(switch)->toggles displaying each of the set of matched elements based on a switch
+
+->toggle(speed,callback)-> toggles displaying of each set of matched elements using a graceful animation and firing a callback on completion
+
+Example
+
+$("#show").click(function(){ $("#theDiv").show("normal"); });
+$("#hide").click(function(){$("#theDiv").hide("normal"); });
+$("#toggle").click(function(){$("#theDiv").toggle("slow");});
+
+
+Fading elements in and out
+
+fadeIn(speed, callback)->speed: string: normal,slow,fast or millisecond duration
+
+fadeOut(speed,callback)-> fades out all matched elements by adjusting their opacity to 0 and then setting display to none and firing an optional callback after completion
+
+fadeTo(speed,opacity,callback)-> fade to specified opacity
+
+Example
+$("#fadein").click(function(){
+$("#theDiv").fadeIn("normal");
+});
+
+Sliding elements
+
+Showing and hiding elements using a slide effect
+
+slideDown(speed,callback)-> reveals all matched elements by adjusting height and firing an optional callback after completion
+
+slideUp(speed,callback)-> hides all matched elements by adjusting their height and firing an optional callback after completion
+
+slieToggle(speed,callback)-> toggles visibility
+
+Creating custom animation
+
+animate() function
+
+animate(params,duration,easing,callback)
+
+animate(params,options)
+
+stop()
+
+Examples
+
+Grow right:
+$("#theDiv").animate({width:"500px"},1000);
+
+Font szie
+$("#text").animate({fontsize:"24pt"},1000);
+
+Move right
+$("#right").animate({left:"500"},1000,"swing");
+
+
