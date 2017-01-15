@@ -1,0 +1,63 @@
+$.ajax() -> make asynchronous HTTP requests
+
+function getData(){
+ $.ajax({
+	url:"testdata.txt",
+	type:"GET",
+	dataType:"text",
+	success: successFn,
+	error:errorFn.
+	complete: function(xhr,status){
+		console.log("The request is complete");
+	}
+
+);
+
+function successFn(result) {
+	console.log("Setting result");
+	$("#content").append(result);
+}
+
+function errorFn(xhr,status,strErr){
+	console.log("There was an error!");
+}
+
+Using helper methods
+
+jQuery.get(), jQuery.getJSON(), getScript(),post(),load()
+
+->get()
+
+url, data, datatType,success(data,textStatus,jqrXH)
+
+Example:
+
+$.get("testData.txt",successFn);
+
+$("#content").load("testData.txt");
+
+getJSON()
+
+$.getJSON(url,data,successFn);
+
+Example:
+$.getJSON(flickrAPI,{
+	tags:"space needle",
+	tagmode:"any",
+	format:"json"
+	},sucessFn);
+
+function succesFn(result){
+	$.each(result.items,function(i,item){
+	$("<img>").attr("src",item.media.m).appendTo("#content");
+	if(i==4)
+	return false;
+
+});
+}
+
+Global AJAX event Handlers
+
+ajaxStart, ajaxComplete, etc
+
+
